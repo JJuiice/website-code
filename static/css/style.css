@@ -1,0 +1,5 @@
+#pagesNav
+    .nav-item
+        .active {
+            background-color:darkred;
+        }
