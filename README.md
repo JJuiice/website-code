@@ -1,2 +1,2 @@
 # website-code
-WiP
+Source for my website's code. Currently WiP
