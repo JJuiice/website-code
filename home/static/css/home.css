@@ -1,0 +1,30 @@
+body {
+  background-image: url( '../img/background_home.jpg' );
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.fa-envelope {
+  background-color: white;
+  color: dimgrey;
+  margin-right: 2em;
+}
+
+.fa-linkedin-in {
+  background-color: blue;
+  color: white;
+  margin-right: 2em;
+}
+
+.fa-github {
+  background-color: grey;
+  color: white;
+}
+
+#homeContent {
+  position: absolute;
+  top: 25%;
+}
+

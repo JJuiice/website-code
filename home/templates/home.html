@@ -1,12 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block additional_page_stylesheets %}
+    <link rel="stylesheet" href='{% static "css/home.css" %}' type="text/css">
+{% endblock %}
+
 {% block page_title %}
     Home
 {% endblock %}
 
 {% block page_content %}
-    <div class="container-fluid">
-        <img src="{% static 'img/background_home.jpg' %}" />
+    <div id='homeContent' class='container'>
+        <h1 class="display-1 font-weight-bold text-monospace"><span style="color:white">Hello, my name is</span><br><span style="color:red">Ojas Anand</span></h1>
+        <br>
+        <button type="button" class="btn btn-lg far fa-envelope" onclick="window.open( 'mailto:oanand@fastmail.com', '_blank' )"> Email</button>
+        <button type="button" class="btn btn-lg fab fa-linkedin-in" onclick="window.open( 'https://www.linkedin.com/in/ojas-a-99187910b/', '_blank')"> LinkedIn</button>
+        <button type="button" class="btn btn-lg fab fa-github" onclick="window.open( 'https://github.com/sigmaupsilon', '_blank')"> GitHub</button>
     </div>
+{% endblock %}
+
+{% block additional_page_scripts %}
+    <script src="https://kit.fontawesome.com/558e768b89.js" crossorigin="anonymous"></script>
 {% endblock %}
