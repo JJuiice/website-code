@@ -10,12 +10,15 @@
 {% endblock %}
 
 {% block page_content %}
-    <div id='homeContent' class='container'>
-        <h1 class="display-1 font-weight-bold text-monospace"><span style="color:white">Hello, my name is</span><br><span style="color:red">Ojas Anand</span></h1>
+    <div id="homeContent" class="container-fluid">
+        <h1 class="display-1 font-weight-bold text-left">Hello, my name is<br><span style="color:red">Ojas Anand</span></h1>
+        <h1 class="display-4 text-monospace text-center">Software Developer and Tinkerer of Electronics</h1>
         <br>
-        <button type="button" class="btn btn-lg far fa-envelope" onclick="window.open( 'mailto:oanand@fastmail.com', '_blank' )"> Email</button>
-        <button type="button" class="btn btn-lg fab fa-linkedin-in" onclick="window.open( 'https://www.linkedin.com/in/ojas-a-99187910b/', '_blank')"> LinkedIn</button>
-        <button type="button" class="btn btn-lg fab fa-github" onclick="window.open( 'https://github.com/sigmaupsilon', '_blank')"> GitHub</button>
+        <div id="socialButtons" class="container">
+            <button type="button" class="btn btn-lg far fa-envelope" onclick="window.open( 'mailto:oanand@fastmail.com', '_blank' )"> Email</button>
+            <button type="button" class="btn btn-lg fab fa-linkedin-in" onclick="window.open( 'https://www.linkedin.com/in/ojas-a-99187910b/', '_blank')"> LinkedIn</button>
+            <button type="button" class="btn btn-lg fab fa-github" onclick="window.open( 'https://github.com/sigmaupsilon', '_blank')"> GitHub</button>
+        </div>
     </div>
 {% endblock %}
 

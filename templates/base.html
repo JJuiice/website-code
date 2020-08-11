@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href='{% static "css/base.css" %}' type="text/css">
     {% block additional_page_stylesheets %}{% endblock %}
     <meta charset="UTF-8">
     <title>Ojas Anand | {% block page_title %}{% endblock %}</title>
@@ -12,7 +10,7 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="container">
+        <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -23,8 +21,8 @@
                     <li class="nav-item{% if url_name == 'home' %} active{% endif %}">
                         <a class="nav-link" href="{% url 'home' %}">Home</a>
                     </li>
-                    <li class="nav-item{% if url_name == 'aboutme' %} active{% endif %}">
-                        <a class="nav-link" href="{% url 'aboutme' %}">About Me</a>
+                    <li class="nav-item{% if url_name == 'about' %} active{% endif %}">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item{% if url_name == 'projects' %} active{% endif %}">
                         <a class="nav-link" href="{% url 'projects' %}">Projects</a>

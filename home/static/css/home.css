@@ -1,9 +1,20 @@
-body {
+body:before {
+  content: '';
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+
   background-image: url( '../img/background_home.jpg' );
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-attachment: fixed;
+
+  filter: blur(0.2rem);
+  -webkit-filter: blur(0.2rem);
+  -moz-filter: blur(0.2rem);
+  -o-filter: blur(0.2rem);
+  -ms-filter: blur(0.2rem);
 }
 
 .fa-envelope {
@@ -28,3 +39,20 @@ body {
   top: 25%;
 }
 
+#homeContent h1 {
+  color: white;
+}
+
+#homeContent .display-1 {
+  font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+}
+
+#homeContent .display-3 {
+  text-align: center;
+}
+
+#socialButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

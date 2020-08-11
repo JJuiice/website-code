@@ -1,0 +1,40 @@
+{%  extends "base.html" %}
+{% load static %}
+
+{% block additional_page_stylesheets %}
+    <link rel="stylesheet" href='{% static "css/about.css" %}' type="text/css">
+{% endblock %}
+
+{% block page_title %}
+    About
+{% endblock %}
+
+{% block page_content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <img src="{% static "img/headshot.jpg" %}" class="img-thumbnail rounded-circle mx-auto d-block"
+                     alt="Headshot" data-holder-rendered="true">
+            </div>
+            <div class="col align-self-center">
+                <p class="text-justify">Hi, I'm Ojas. I am fourth-year Computer Engineering student and have had a
+                        passion technology since I wrote my first program in Java when I was twelve years old. I ...</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1 class="font-weight-bold">Employment History</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1 class="font-weight-bold">Relevant Skills</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1 class="font-weight-bold">Communities and Other Hobbies</h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
