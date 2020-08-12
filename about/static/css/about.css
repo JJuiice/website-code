@@ -2,6 +2,22 @@ body {
     background-color: beige;
 }
 
-.col img {
+.col .img-thumbnail {
     width: 50%;
+}
+
+.card-img-top {
+    height: 30vw;
+    object-fit: contain;
+}
+
+.circle {
+    height: 1em;
+    width: 1em;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.completed {
+    background-color: blue;
 }
