@@ -2,12 +2,16 @@ body {
     background-color: beige;
 }
 
-.col .img-thumbnail {
-    width: 50%;
+.navbar {
+    background-color: lightgreen !important;
+}
+
+.img-thumbnail {
+    max-height: 24vh;
 }
 
 .card-img-top {
-    height: 30vw;
+    height: 20vw;
     object-fit: contain;
 }
 
@@ -20,4 +24,12 @@ body {
 
 .completed {
     background-color: blue;
+}
+
+#about-content {
+    background-color: beige;
+}
+
+#banner {
+    background-color: lightgreen;
 }

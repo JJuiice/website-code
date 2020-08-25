@@ -1,3 +1,7 @@
 .nav-link {
     color: blue !important;
 }
+
+.navbar-nav .active .nav-link {
+    color: darkblue !important;
+}
