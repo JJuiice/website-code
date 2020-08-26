@@ -26,9 +26,11 @@
                     <li class="nav-item{% if url_name == 'about' %} active{% endif %}">
                         <a class="nav-link" href="{% url 'about' %}">About</a>
                     </li>
+                {% comment %}
                     <li class="nav-item{% if url_name == 'projects' %} active{% endif %}">
                         <a class="nav-link" href="{% url 'projects' %}">Projects</a>
                     </li>
+                    {%  endcomment %}
                 </ul>
                 {% endwith %}
             </div>

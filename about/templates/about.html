@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load about_filters %}
 
 {% load static %}
 
@@ -19,35 +20,53 @@
                      alt="Headshot">
             </div>
             <div class="col-sm-9 align-self-center">
-                <p class="text-justify">Hi, I'm Ojas! I am a fourth-year Computer Engineering Major at the University of
-                    Cincinnati. I wrote my first "Hello World" program when I was 12 in Java. Over the past eight years,
-                    I have delved into electronic hardware and computer software in my free time including my involvement
-                    with my local FIRST Lego League and FIRST Tech Challenge team. This hobby soon after lead into my
-                    first internship at Wright-Patterson Air Force Base the summer after by Junior year. Since then, I
-                    have worked at GE and Siemens Digital Industries Software. In my free time, I am involved in Martial
-                    Arts and volunteer at Ohio Alleycat Rescue near Cincinnati.
+                <p class="text-justify">
+                    Hi, I'm Ojas! I am a fourth-year Computer Engineering Major at the University of Cincinnati. I wrote
+                    my first "Hello World" program when I was 12 in Java. Over the past eight years, I have delved into
+                    electronic hardware and computer software in my free time including my involvement with my local
+                    FIRST Lego League and FIRST Tech Challenge team. This hobby soon after lead into my first internship
+                    at Wright-Patterson Air Force Base the summer after by Junior year. Since then, I have worked at GE
+                    and Siemens Digital Industries Software. In my free time, I am involved in Martial Arts and volunteer
+                    at Ohio Alleycat Rescue near Cincinnati.
                 </p>
-                <a href="#">Résumé</a>
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container float-left">
         <div class="row mb-4">
             <div class="col">
-                <h1 class="font-weight-bold">Relevant Technical Skills</h1>
+                <h1 class="font-weight-bold">Technical Skills and Skill Levels</h1>
             </div>
         </div>
+        {% for skill in skills %}
+            <div class="row">
+                <div class="col-sm-3">
+                    <p class="font-weight-bold">{{ skill.name }}:</p>
+                </div>
+                <div class="col-sm">
+                    <div class="container">
+                        <div class="row">
+                            {% for val in skill.level|f_range %}
+                                <div class="col-1">
+                                    <div class="circle completed"></div>
+                                </div>
+                            {% endfor %}
+                            {% for val in skill.level|sub:5|f_range %}
+                                <div class="col-1">
+                                    <div class="circle"></div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+               </div>
+            </div>
+        {% endfor %}
+        {%  comment %}
         <div class="row mb-4">
             <div class="col-sm">
                 <div class="card">
                     <h5 class="card-header card-title">C/C++</h5>
                     <img class="card-img-top" src="{% static 'img/c_cpp.jpg' %}" alt="C/C++">
-                    <div class="card-body">
-                        <ul class="card-text">
-                            <li>Point 1</li>
-                            <li>Point 2</li>
-                        </ul>
-                    </div>
                     <div class="container card-footer">
                         <div class="row">
                             <div class="col">
@@ -75,12 +94,6 @@
                 <div class="card">
                     <h5 class="card-header card-title">Python</h5>
                     <img class="card-img-top" src="{% static 'img/python.jpg' %}" alt="Python">
-                    <div class="card-body">
-                        <ul class="card-text">
-                            <li>Point 1</li>
-                            <li>Point 2</li>
-                        </ul>
-                    </div>
                     <div class="container card-footer">
                         <div class="row">
                             <div class="col">
@@ -108,12 +121,6 @@
                 <div class="card">
                     <h5 class="card-header card-title">Java</h5>
                     <img class="card-img-top" src="{% static 'img/java.jpg' %}" alt="Java">
-                    <div class="card-body">
-                        <ul class="card-text">
-                            <li>Point 1</li>
-                            <li>Point 2</li>
-                        </ul>
-                    </div>
                     <div class="container card-footer">
                         <div class="row">
                             <div class="col">
@@ -142,12 +149,6 @@
             <div class="col-sm-4">
                 <div class="card">
                     <h5 class="card-header card-title">Computer Architecture and Digital Design</h5>
-                    <div class="card-body">
-                        <ul class="card-text">
-                            <li>Point 1</li>
-                            <li>Point 2</li>
-                        </ul>
-                    </div>
                     <div class="container card-footer">
                         <div class="row">
                             <div class="col">
@@ -172,5 +173,63 @@
                 </div>
             </div>
         </div>
+    <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <h5 class="card-header card-title">Computer Architecture and Digital Design</h5>
+                    <div class="container card-footer">
+                        <div class="row">
+                            <div class="col">
+                                <p class="font-weight-bold">Skill Level</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="circle completed"></div>
+                            </div>
+                            <div class="col">
+                                <div class="circle completed"></div>
+                            </div>
+                            <div class="col">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="col">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <h5 class="card-header card-title">Computer Architecture and Digital Design</h5>
+                    <div class="container card-footer">
+                        <div class="row">
+                            <div class="col">
+                                <p class="font-weight-bold">Skill Level</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="circle completed"></div>
+                            </div>
+                            <div class="col">
+                                <div class="circle completed"></div>
+                            </div>
+                            <div class="col">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="col">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endcomment %}
     </div>
 {% endblock %}
