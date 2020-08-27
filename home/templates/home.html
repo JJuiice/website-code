@@ -3,6 +3,24 @@
 
 {% block additional_page_stylesheets %}
     <link rel="stylesheet" href='{% static "css/home.css" %}' type="text/css">
+    <style>
+        body:before {
+            content: '';
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+
+            background-image: url( {% static 'img/background_home.jpg' %} );
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+
+            filter: blur(0.2rem);
+            -webkit-filter: blur(0.2rem);
+            -ms-filter: blur(0.2rem);
+        }
+    </style>
 {% endblock %}
 
 {% block page_title %}
@@ -11,13 +29,20 @@
 
 {% block page_content %}
     <div id="homeContent" class="container-fluid">
-        <h1 class="display-1 font-weight-bold text-left">Hello, my name is<br><span style="color:red">Ojas Anand</span></h1>
+        <h1 class="display-1 font-weight-bold text-left">Hello, my name is<br><span style="color:red">Ojas Anand</span>
+        </h1>
         <h1 class="display-4 text-monospace text-center">Software Developer and Tinkerer of Electronics</h1>
         <br>
         <div id="socialButtons" class="container">
-            <button type="button" class="btn btn-lg far fa-envelope" onclick="window.open( 'mailto:oanand@fastmail.com', '_blank' )"> Email</button>
-            <button type="button" class="btn btn-lg fab fa-linkedin-in" onclick="window.open( 'https://www.linkedin.com/in/ojas-a-99187910b/', '_blank')"> LinkedIn</button>
-            <button type="button" class="btn btn-lg fab fa-github" onclick="window.open( 'https://github.com/sigmaupsilon', '_blank')"> GitHub</button>
+            <button type="button" class="btn btn-lg far fa-envelope"
+                    onclick="window.open( 'mailto:oanand@fastmail.com', '_blank' )"> Email
+            </button>
+            <button type="button" class="btn btn-lg fab fa-linkedin-in"
+                    onclick="window.open( 'https://www.linkedin.com/in/ojas-a-99187910b/', '_blank')"> LinkedIn
+            </button>
+            <button type="button" class="btn btn-lg fab fa-github"
+                    onclick="window.open( 'https://github.com/sigmaupsilon', '_blank')"> GitHub
+            </button>
         </div>
     </div>
 {% endblock %}
