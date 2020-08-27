@@ -12,8 +12,6 @@ body:before {
 
   filter: blur(0.2rem);
   -webkit-filter: blur(0.2rem);
-  -moz-filter: blur(0.2rem);
-  -o-filter: blur(0.2rem);
   -ms-filter: blur(0.2rem);
 }
 

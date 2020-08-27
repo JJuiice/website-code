@@ -1,18 +1,14 @@
 body {
-    background-color: beige;
+    background-color: black;
 }
 
-.navbar {
-    background-color: lightgreen !important;
+.about-content {
+    border-color: limegreen !important;
+    color: limegreen;
 }
 
 .img-thumbnail {
     max-height: 24vh;
-}
-
-.card-img-top {
-    height: 20vw;
-    object-fit: contain;
 }
 
 .circle {
@@ -24,8 +20,4 @@ body {
 
 .completed {
     background-color: blue;
-}
-
-#banner {
-    background-color: lightgreen;
 }

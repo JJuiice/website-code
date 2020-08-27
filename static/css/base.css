@@ -1,7 +1,4 @@
-.nav-link {
-    color: blue !important;
-}
-
-.navbar-nav .active .nav-link {
-    color: darkblue !important;
+.cl {
+    font-size: 10px;
+    color: lightgrey;
 }
