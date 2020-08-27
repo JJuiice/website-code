@@ -14,10 +14,10 @@ body {
 .circle {
     height: 1em;
     width: 1em;
-    border: 1px solid black;
+    border: 1px solid red;
     border-radius: 50%;
 }
 
 .completed {
-    background-color: blue;
+    background-color: red;
 }
