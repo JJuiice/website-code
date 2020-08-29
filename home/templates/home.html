@@ -3,24 +3,6 @@
 
 {% block additional_page_stylesheets %}
     <link rel="stylesheet" href='{% static "css/home.css" %}' type="text/css">
-    <style>
-        body:before {
-            content: '';
-            width: 100vw;
-            height: 100vh;
-            position: fixed;
-
-            background-image: url( {% static 'img/background_home.jpg' %} );
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-
-            filter: blur(0.2rem);
-            -webkit-filter: blur(0.2rem);
-            -ms-filter: blur(0.2rem);
-        }
-    </style>
 {% endblock %}
 
 {% block page_title %}
@@ -29,11 +11,13 @@
 
 {% block page_content %}
     <div id="homeContent" class="container-fluid">
-        <h1 class="display-1 font-weight-bold text-left">Hello, my name is<br><span style="color:red">Ojas Anand</span>
-        </h1>
+        <div class="d-flex flex-row">
+            <h1 id="nameIntro" class="display-1 font-weight-bold text-left">Ojas Anand</h1>
+            <div id="cursor"></div>
+        </div>
         <h1 class="display-4 text-monospace text-center">Software Developer and Tinkerer of Electronics</h1>
         <br>
-        <div id="socialButtons" class="container">
+        <div class="container d-flex flex-row justify-content-center social-buttons">
             <button type="button" class="btn btn-lg far fa-envelope"
                     onclick="window.open( 'mailto:oanand@fastmail.com', '_blank' )"> Email
             </button>
@@ -45,8 +29,4 @@
             </button>
         </div>
     </div>
-{% endblock %}
-
-{% block additional_page_scripts %}
-    <script src="https://kit.fontawesome.com/558e768b89.js" crossorigin="anonymous"></script>
 {% endblock %}

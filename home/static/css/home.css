@@ -1,27 +1,31 @@
-.fa-envelope {
-  background-color: white;
-  color: dimgrey;
-  margin-right: 2em;
+.social-buttons .btn {
+  border: 1px solid lime;
+  text-shadow: -1px -1px 0 lime, 1px -1px 0 lime, -1px 1px 0 lime, 1px 1px 0 lime;
+  margin-right: 2em
 }
 
-.fa-linkedin-in {
-  background-color: blue;
-  color: white;
-  margin-right: 2em;
-}
-
-.fa-github {
-  background-color: grey;
-  color: white;
+.social-buttons .btn:hover {
+  border: 1px solid limegreen;
+  text-shadow: -1px -1px 0 limegreen, 1px -1px 0 limegreen, -1px 1px 0 limegreen, 1px 1px 0 limegreen;
 }
 
 #homeContent {
   position: absolute;
-  top: 25%;
+  top: 30%;
 }
 
-#homeContent h1 {
-  color: white;
+#cursor {
+  background: lime;
+  margin-left: 0.5em;
+  -webkit-animation: blink 1.5s infinite;
+  width: 2em;
+  height: 6em;
+}
+
+@-webkit-keyframes blink {
+  0% {background: black}
+  50% {background: lime}
+  100% {background: black}
 }
 
 #homeContent .display-1 {
@@ -30,10 +34,4 @@
 
 #homeContent .display-3 {
   text-align: center;
-}
-
-#socialButtons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
