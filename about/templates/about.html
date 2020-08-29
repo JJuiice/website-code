@@ -12,107 +12,68 @@
 {% endblock %}
 
 {% block page_content %}
-    <div class="container-fluid border-bottom about-content">
-        <div class="row mb-4">
-            <div class="col-md-3">
-                <img src="{% static "img/headshot.jpg" %}"
-                     class="img-thumbnail rounded-circle mx-auto d-block"
-                     alt="Headshot">
+    <div id="aboutBanner"
+         class="d-flex flex-md-row flex-column justify-content-center align-items-center pb-4 mb-4 border-bottom">
+        <img src="{% static "img/headshot.jpg" %}"
+             class="img-thumbnail rounded-circle flex-shrink-0 ml-5"
+             alt="Headshot">
+        <p class="text-justify ml-5 mr-5 mt-3">
+            Hi, I'm Ojas! I am a fourth-year Computer Engineering Major at the University of Cincinnati. I wrote
+            my first program in Java when I was 12. Over the past ten years, I have delved into electronic
+            hardware and computer software in my free time including my involvement with my local FIRST Lego
+            League and FIRST Tech Challenge team. This hobby soon after lead into my first internship at
+            Wright-Patterson Air Force Base the summer after by Junior year. Since then, I have worked at GE and
+            Siemens Digital Industries Software. In my free time, I am involved in martial arts and volunteer at
+            my local animal shelter.
+        </p>
+    </div>
+    <div class="d-flex flex-column">
+        <h1 class="font-weight-bold mb-4">Technical Skills and Proficiency</h1>
+        {% for skill in skills %}
+            <div class="d-flex flex-sm-row flex-column">
+                <p class="font-weight-bold flex-even-tskills">{{ skill.name }}:</p>
+                <div class="d-flex flex-row">
+                    {% for val in skill.level|f_range %}
+                        <div class="col-1">
+                            <div class="circle completed"></div>
+                        </div>
+                    {% endfor %}
+                    {% for val in skill.level|sub:5|f_range %}
+                        <div class="col-1">
+                            <div class="circle"></div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-            <div class="col-md-8 align-self-center">
-                <p class="text-justify">
-                    Hi, I'm Ojas! I am a fourth-year Computer Engineering Major at the University of Cincinnati. I wrote
-                    my first program in Java when I was 12. Over the past ten years, I have delved into electronic
-                    hardware and computer software in my free time including my involvement with my local FIRST Lego
-                    League and FIRST Tech Challenge team. This hobby soon after lead into my first internship at
-                    Wright-Patterson Air Force Base the summer after by Junior year. Since then, I have worked at GE and
-                    Siemens Digital Industries Software. In my free time, I am involved in martial arts and volunteer at
-                    my local animal shelter.
+        {% endfor %}
+        <h1 class="font-weight-bold mt-4 mb-4">Professional Experience</h1>
+        {% for pe in pes %}
+            <div class="d-inline-flex flew-row">
+                <p class="flex-even-rest">
+                    <span class="font-weight-bold">{{ pe.title }}</span>,
+                    <span class="font-italic">{{ pe.company }}</span>,
+                    {{ pe.location }}
+                </p>
+                <p>
+                    {{ pe.start_period }} {{ pe.start_year }} - {{ pe.end_period }} {{ pe.end_year }}
+                    {{ pe.additional_time_info }}
                 </p>
             </div>
-        </div>
-    </div>
-    <div class="container float-left about-content">
-        <div class="row mt-4 mb-4">
-            <div class="col">
-                <h1 class="font-weight-bold">Technical Skills and Proficiency</h1>
-            </div>
-        </div>
-        {% for skill in skills %}
-            <div class="row">
-                <div class="col-sm-3">
-                    <p class="font-weight-bold">{{ skill.name }}:</p>
-                </div>
-                <div class="col-sm">
-                    <div class="container">
-                        <div class="row">
-                            {% for val in skill.level|f_range %}
-                                <div class="col-1">
-                                    <div class="circle completed"></div>
-                                </div>
-                            {% endfor %}
-                            {% for val in skill.level|sub:5|f_range %}
-                                <div class="col-1">
-                                    <div class="circle"></div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <p class="mb-4">{{ pe.details|linebreaks }}</p>
         {% endfor %}
-        <div class="row mt-4 mb-4">
-            <div class="col">
-                <h1 class="font-weight-bold">Professional Experience</h1>
-            </div>
-        </div>
-        {% for pe in pes %}
-            <div class="row mb-2">
-                <div class="col">
-                    <p>
-                        <span class="font-weight-bold">{{ pe.title }}</span>,
-                        <span class="font-italic">{{ pe.company }}</span>,
-                        {{ pe.location }}
-                    </p>
-                </div>
-                <div class="col">
-                    <p>
-                        {{ pe.start_period }} {{ pe.start_year }} - {{ pe.end_period }} {{ pe.end_year }}
-                        {{ pe.additional_time_info }}
-                    </p>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col">
-                    {{ pe.details|linebreaks }}
-                </div>
-            </div>
-        {% endfor %}
-        <div class="row mb-4">
-            <div class="col">
-                <h1 class="font-weight-bold">Leadership</h1>
-            </div>
-        </div>
+        <h1 class="font-weight-bold mb-4">Leadership</h1>
         {% for leadership in leaderships %}
-            <div class="row mb-2">
-                <div class="col">
-                    <p>
-                        <span class="font-weight-bold">{{ leadership.title }}</span>,
-                        {{ leadership.organization }}
-                    </p>
-                </div>
-                <div class="col">
-                    <p>
-                        {{ leadership.start_period }} {{ leadership.start_year }} - {{ leadership.end_period }}
-                        {{ leadership.end_year }}
-                    </p>
-                </div>
+            <div class="d-flex flex-row">
+                <p class="flex-even-rest">
+                    <span class="font-weight-bold">{{ leadership.title }}</span>,
+                    {{ leadership.organization }}
+                </p>
+                <p>
+                    {{ leadership.start_period }} {{ leadership.start_year }} - {{ leadership.end_period }}
+                    {{ leadership.end_year }}
+                </p>
             </div>
-            <div class="row mb-4">
-                <div class="col">
-                    {{ leadership.details|linebreaks }}
-                </div>
-            </div>
+            <p class="mb-4">{{ leadership.details|linebreaks }}</p>
         {% endfor %}
     </div>
 {% endblock %}

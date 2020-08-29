@@ -1,3 +1,7 @@
+#homeContent {
+  height: 90vh;
+}
+
 .social-buttons .btn {
   border: 1px solid lime;
   text-shadow: -1px -1px 0 lime, 1px -1px 0 lime, -1px 1px 0 lime, 1px 1px 0 lime;
@@ -7,11 +11,6 @@
 .social-buttons .btn:hover {
   border: 1px solid limegreen;
   text-shadow: -1px -1px 0 limegreen, 1px -1px 0 limegreen, -1px 1px 0 limegreen, 1px 1px 0 limegreen;
-}
-
-#homeContent {
-  position: absolute;
-  top: 30%;
 }
 
 #cursor {
@@ -30,8 +29,4 @@
 
 #homeContent .display-1 {
   font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
-}
-
-#homeContent .display-3 {
-  text-align: center;
 }
