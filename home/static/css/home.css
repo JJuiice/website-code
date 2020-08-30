@@ -13,20 +13,17 @@
   text-shadow: -1px -1px 0 limegreen, 1px -1px 0 limegreen, -1px 1px 0 limegreen, 1px 1px 0 limegreen;
 }
 
-#cursor {
-  background: lime;
-  margin-left: 0.5em;
-  -webkit-animation: blink 1.5s infinite;
-  width: 2em;
-  height: 6em;
+.cursor {
+  color: transparent;
+  animation: blink 1.5s infinite;
 }
 
-@-webkit-keyframes blink {
+@keyframes blink {
   0% {background: black}
   50% {background: lime}
   100% {background: black}
 }
 
 #homeContent .display-1 {
-  font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+  font-family: "Lucida Console", Consolas, "Courier New", Courier, monospace;
 }
