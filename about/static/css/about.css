@@ -6,11 +6,7 @@
     max-height: 25vh;
 }
 
-.flex-even-tskills {
-    flex-basis: 5em;
-}
-
-.flex-even-rest {
+.flex-even {
     flex-basis: 25em;
 }
 
