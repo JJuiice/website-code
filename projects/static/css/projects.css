@@ -1,0 +1,20 @@
+.col-sm-4 {
+    border-color: lime !important;
+    color: black;
+    text-shadow: -1px -1px 0 limegreen, 1px -1px 0 limegreen, -1px 1px 0 limegreen, 1px 1px 0 limegreen;
+    animation: fadeIn 1.5s linear;
+}
+
+.col-sm-4:hover {
+    background-color: lime;
+    transition: background-color 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

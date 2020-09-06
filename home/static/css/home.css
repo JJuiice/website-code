@@ -1,7 +1,3 @@
-#homeContent {
-  height: 90vh;
-}
-
 .social-buttons .btn {
   border: 1px solid lime;
   text-shadow: -1px -1px 0 lime, 1px -1px 0 lime, -1px 1px 0 lime, 1px 1px 0 lime;

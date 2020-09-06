@@ -7,17 +7,13 @@
     <link rel="stylesheet" href='{% static "css/about.css" %}' type="text/css">
 {% endblock %}
 
-{% block page_title %}
-    About
-{% endblock %}
-
 {% block page_content %}
     <div id="aboutBanner"
          class="d-flex flex-md-row flex-column justify-content-center align-items-center pb-5 mb-5 border-bottom">
         <img src="{% static "img/headshot.jpg" %}"
              class="img-thumbnail rounded-circle flex-shrink-0 ml-5"
              alt="Headshot">
-        <p class="text-justify ml-5 mr-5 mt-3">
+        <p class="text-justify mx-5 mt-3">
             Hi, I'm Ojas! I am a fourth-year Computer Engineering Major at the University of Cincinnati. I wrote
             my first program in Java when I was 12. Over the past ten years, I have delved into electronic
             hardware and computer software in my free time including my involvement with my local FIRST Lego
@@ -37,11 +33,12 @@
                     </div>
                     <div class="col-sm">
                         <div class="d-inline-flex flex-row">
-                            {% for val in skill.level|f_range %}
-                                <div class="circle completed mr-5"></div>
-                            {% endfor %}
-                            {% for val in skill.level|sub:5|f_range %}
-                                <div class="circle mr-5"></div>
+                            {% for i in 5|f_range %}
+                                {% if i < skill.level %}
+                                    <div class="circle completed mr-5"></div>
+                                {% else %}
+                                    <div class="circle mr-5"></div>
+                                {% endif %}
                             {% endfor %}
                         </div>
                     </div>
