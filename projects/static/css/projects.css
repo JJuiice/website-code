@@ -1,13 +1,27 @@
-.col-sm-4 {
-    border-color: lime !important;
-    color: black;
-    text-shadow: -1px -1px 0 limegreen, 1px -1px 0 limegreen, -1px 1px 0 limegreen, 1px 1px 0 limegreen;
-    animation: fadeIn 1.5s linear;
+html, body {
+    overflow-x: hidden;
 }
 
-.col-sm-4:hover {
+@media only screen and (min-width: 768px) {
+    html, body {
+        overflow-y: hidden;
+    }
+}
+
+.project-items {
+    border-color: lime !important;
+    color: inherit;
+    text-decoration: none !important;
+    text-shadow: -1px -1px 0 limegreen, 1px -1px 0 limegreen, -1px 1px 0 limegreen, 1px 1px 0 limegreen;
+    animation: fadeIn 1.5s ease-in;
+    transition: transform 0.2s linear;
+}
+
+.project-items:hover {
     background-color: lime;
-    transition: background-color 0.5s;
+    color: black;
+    transition: background-color 0.2s linear, transform 0.2s linear;
+    transform: scale(1.1);
 }
 
 @keyframes fadeIn {

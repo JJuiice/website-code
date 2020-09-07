@@ -3,10 +3,6 @@ body {
     color: lime;
 }
 
-.nav {
-    height: 5%;
-}
-
 .fa-bars {
     color: lime !important;
 }
@@ -17,7 +13,7 @@ body {
 
 .nav-link:hover {
     color: black;
-    transition: color 0.5s;
+    transition: color 0.2s;
 }
 
 .nav-item:hover {
@@ -66,5 +62,5 @@ body {
 }
 
 #mainContent {
-    height: 95%
+    height: 95%;
 }

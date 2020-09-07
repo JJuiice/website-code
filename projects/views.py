@@ -1,12 +1,14 @@
 from django.shortcuts import render
-from projects.models import projectList
+from projects.models import ProjectList
 
 
 # Create your views here.
 def projects(request):
-    pl = projectList.objects.all()
+    pl = ProjectList.objects.all()
+    pLink = ProjectList.objects.all()
     context = {
-        'pl': pl
+        'pl': pl,
+        'pLink': pLink
     }
 
     return render(request, 'projects.html', context)

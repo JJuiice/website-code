@@ -8,13 +8,14 @@
 
 {% block page_content %}
     <div class="container-fluid h-100">
-        {% for p in pl %}
-            {% if forloop.counter0|divisibleby:3 %}
-                <div class="row h-25">{% endif %}
-        <div class="col-sm-4 border h-100 d-flex flex-column justify-content-center align-items-center">
-            <h1 id={{ p.id }} class="font-weight-bold">{{ p.name }}</h1>
+        <div class="row project-items-row h-50">
+            {% for p in pl %}
+                <a href="{{ p.external_url }}"
+                   class="col-sm-4 border h-100 d-flex flex-column justify-content-center align-items-center project-items">
+                    <h1 id="{{ p.id }}" class="font-weight-bold text-break">{{ p.name }}</h1>
+                </a>
+                {% if forloop.counter|divisibleby:3 %}<div class="w-100"></div>{% endif %}
+            {% endfor %}
+            </div>
         </div>
-        {% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}
-        {% endfor %}
-    </div>
 {% endblock %}
