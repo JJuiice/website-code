@@ -24,6 +24,11 @@ html, body {
     transform: scale(1.1);
 }
 
+.project-items:active {
+    background-color: lime;
+    color: black;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
