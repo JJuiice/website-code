@@ -12,9 +12,8 @@
         <div class="row project-items-row h-50">
             {% for p in pl %}
                 <a href="{{ p.external_url }}"
-                   class="col-sm-4 border h-100 d-flex flex-column justify-content-center align-items-center project-items"
-                    style="animation-delay: {{ p.id|sub:1|mul:0.2 }}s; animation-fill-mode: backwards;">
-
+                   class="col-sm border h-100 d-flex flex-column justify-content-center align-items-center project-items"
+                   style="animation-delay: {{ p.id|sub:1|mul:0.2 }}s; animation-fill-mode: backwards;">
                     <h1 id="{{ p.id }}" class="font-weight-bold text-break">{{ p.name }}</h1>
                 </a>
                 {% if forloop.counter|divisibleby:3 %}
