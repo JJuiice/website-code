@@ -2,12 +2,6 @@ html, body {
     overflow-x: hidden;
 }
 
-@media only screen and (min-width: 768px) {
-    html, body {
-        overflow-y: hidden;
-    }
-}
-
 .project-items {
     border-color: lime !important;
     color: inherit;

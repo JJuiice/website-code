@@ -1,3 +1,7 @@
+html, body {
+    scrollbar-color: lime black;
+}
+
 body {
     background-color: black;
     color: lime;
