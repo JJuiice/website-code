@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['MySiteSecretKey']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # False
+DEBUG = False
 
-ALLOWED_HOSTS = []  # ['*.herokuapp.com']
+ALLOWED_HOSTS = ['*.herokuapp.com']
 
 # Application definition
 
@@ -123,13 +123,13 @@ STATICFILES_DIRS = [
 ]
 
 # Activate Django-Heroku
-# allowed_hosts = False
-# django_heroku.settings(locals())
+allowed_hosts = False
+django_heroku.settings(locals())
 
 # Security Settings
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# SECURE_HSTS_SECONDS = 10368000
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_PRELOAD = True
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 10368000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
