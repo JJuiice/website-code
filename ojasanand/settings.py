@@ -24,28 +24,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['MySiteSecretKey']
 
-if PROD_ENV:
-    # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = False
-
-    ALLOWED_HOSTS = ['*.herokuapp.com']
-    # Activate Django-Heroku
-    allowed_hosts = False
-    django_heroku.settings(locals())
-
-    # Security Settings
-    SECURE_SSL_REDIRECT = True
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-    SECURE_HSTS_SECONDS = 10368000
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
-else:
-    # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = True
-
-    ALLOWED_HOSTS = ['*']
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -138,3 +116,26 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "home/static"),
     os.path.join(BASE_DIR, "about/static")
 ]
+
+# Production Environment setup
+if PROD_ENV:
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = False
+
+    ALLOWED_HOSTS = ['*.herokuapp.com']
+    # Activate Django-Heroku
+    allowed_hosts = False
+    django_heroku.settings(locals())
+
+    # Security Settings
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 10368000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+else:
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = True
+
+    ALLOWED_HOSTS = ['*']
