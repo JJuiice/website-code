@@ -9,32 +9,29 @@
 
 {% block page_content %}
     <div id="aboutBanner"
-         class="d-flex flex-md-row flex-column justify-content-center align-items-center pb-5 mb-5 border-bottom">
+         class="d-flex flex-column justify-content-center align-items-center pb-5 mb-5 border-bottom">
         <img src="{% static "img/headshot.jpg" %}"
              class="img-thumbnail rounded-circle flex-shrink-0 ml-5"
              alt="Headshot">
-        <p class="text-justify mx-5 mt-3">
-            Hi, I'm Ojas! I am a fourth-year Computer Engineering Major at the University of Cincinnati. I wrote
-            my first program in Java when I was 12. Over the past ten years, I have delved into electronic
-            hardware and computer software in my free time including my involvement with my local FIRST Lego
-            League and FIRST Tech Challenge team. This hobby soon after lead into my first internship at
-            Wright-Patterson Air Force Base the summer after by Junior year. Since then, I have worked at GE and
-            Siemens Digital Industries Software. In my free time, I am involved in martial arts and volunteer at
-            my local animal shelter.
-        </p>
+        <h3 class="text-justify mx-5 mt-5">
+            {% for header in headers|slice:":1" %}
+                {{ header.header }}
+            {% endfor %}
+        </h3>
     </div>
     <div class="d-flex flex-column">
         <h1 class="font-weight-bold mb-5">Skills and Proficiencies</h1>
         <div class="container pl-0 ml-0">
-            {% for skill in skills %}
+            <h2 class="font-weight-bold mb-5">Programming Languages</h2>
+            {% for pl in pls %}
                 <div class="row mb-5">
                     <div class="col-sm-3">
-                        <p class="font-weight-bold">{{ skill.name }}:</p>
+                        <h5 class="font-weight-bold">{{ pl.name }}:</h5>
                     </div>
                     <div class="col-sm">
                         <div class="d-inline-flex flex-row">
                             {% for i in 5|f_range %}
-                                {% if i < skill.level %}
+                                {% if i < pl.level %}
                                     <div class="circle completed mr-5"></div>
                                 {% else %}
                                     <div class="circle mr-5"></div>
@@ -44,35 +41,63 @@
                     </div>
                 </div>
             {% endfor %}
+            <br>
+            <h2 class="font-weight-bold mb-5">Technical</h2>
+            {% for skill in skills %}
+            <div class="row mb-5">
+                <div class="col-sm-3">
+                    <h5 class="font-weight-bold">{{ skill.name }}:</h5>
+                </div>
+                <div class="col-sm">
+                    <div class="d-inline-flex flex-row">
+                        {% for i in 5|f_range %}
+                            {% if i < skill.level %}
+                                <div class="circle completed mr-5"></div>
+                            {% else %}
+                                <div class="circle mr-5"></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
         <h1 class="font-weight-bold mb-5">Professional Experience</h1>
+        <div class="d-flex flex-column details">
         {% for pe in pes %}
-            <div class="d-flex flex-row">
-                <p class="flex-even">
+            <div class="d-flex flex-row mb-5">
+                <h5 class="flex-even">
                     <span class="font-weight-bold">{{ pe.title }}</span>,
                     <span class="font-italic">{{ pe.company }}</span>,
                     {{ pe.location }}
-                </p>
-                <p>
+                </h5>
+                <h5 class="ml-auto">
                     {{ pe.start_period }} {{ pe.start_year }} - {{ pe.end_period }} {{ pe.end_year }}
                     {{ pe.additional_time_info }}
-                </p>
+                </h5>
             </div>
-            <p class="mb-5">{{ pe.details|linebreaks }}</p>
+            <div class="text-justify mb-5">
+                <h5>{{ pe.details|linebreaks }}</h5>
+            </div>
         {% endfor %}
+        </div>
         <h1 class="font-weight-bold mb-5">Leadership</h1>
+        <div class="d-flex flex-column details">
         {% for leadership in leaderships %}
             <div class="d-flex flex-row">
-                <p class="flex-even">
+                <h5 class="flex-even">
                     <span class="font-weight-bold">{{ leadership.title }}</span>,
                     {{ leadership.organization }}
-                </p>
-                <p>
+                </h5>
+                <h5 class="ml-auto">
                     {{ leadership.start_period }} {{ leadership.start_year }} - {{ leadership.end_period }}
                     {{ leadership.end_year }}
-                </p>
+                </h5>
+                </div>
+            <div class="text-justify mb-5">
+                <h5>{{ leadership.details|linebreaks }}</h5>
             </div>
-            <p class="mb-5">{{ leadership.details|linebreaks }}</p>
         {% endfor %}
+        </div>
     </div>
 {% endblock %}

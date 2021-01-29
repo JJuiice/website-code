@@ -1,9 +1,17 @@
 from django.contrib import admin
-from about.models import TechSkills, PE, Leadership
+from about.models import Header, ProgrammingLanguage, TechSkill, PE, Leadership
 
 
 # Register your models here.
-class TechSkillsAdmin(admin.ModelAdmin):
+class HeaderAdmin(admin.ModelAdmin):
+    pass
+
+
+class ProgrammingLanguageAdmin(admin.ModelAdmin):
+    pass
+
+
+class TechSkillAdmin(admin.ModelAdmin):
     pass
 
 
@@ -15,6 +23,8 @@ class LeadershipAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(TechSkills, TechSkillsAdmin)
+admin.site.register(Header, HeaderAdmin)
+admin.site.register(ProgrammingLanguage, ProgrammingLanguageAdmin)
+admin.site.register(TechSkill, TechSkillAdmin)
 admin.site.register(PE, PEAdmin)
 admin.site.register(Leadership, LeadershipAdmin)

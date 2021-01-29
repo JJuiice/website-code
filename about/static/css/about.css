@@ -3,11 +3,11 @@
 }
 
 .img-thumbnail {
-    max-height: 25vh;
+    max-height: 40vh;
 }
 
 .flex-even {
-    flex-basis: 25em;
+    flex-basis: 30em;
 }
 
 .circle {
@@ -19,4 +19,10 @@
 
 .completed {
     background-color: lime;
+}
+
+@media (min-width: 1200px) {
+    .details {
+        width: 75vw;
+    }
 }

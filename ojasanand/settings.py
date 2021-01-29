@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import django_heroku
 
+PROD_ENV = True
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -22,12 +24,27 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['MySiteSecretKey']
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+if PROD_ENV:
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = False
 
-ALLOWED_HOSTS = ['*.herokuapp.com']
+    ALLOWED_HOSTS = ['*.herokuapp.com']
+    # Activate Django-Heroku
+    allowed_hosts = False
+    django_heroku.settings(locals())
 
-# Application definition
+    # Security Settings
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 10368000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+else:
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = True
+
+    ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -121,15 +138,3 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "home/static"),
     os.path.join(BASE_DIR, "about/static")
 ]
-
-# Activate Django-Heroku
-allowed_hosts = False
-django_heroku.settings(locals())
-
-# Security Settings
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_HSTS_SECONDS = 10368000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True

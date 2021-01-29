@@ -1,10 +1,10 @@
 from django.contrib import admin
-from projects.models import ProjectList
+from projects.models import Project
 
 
 # Register your models here.
-class ProjectListAdmin(admin.ModelAdmin):
+class ProjectAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(ProjectList, ProjectListAdmin)
+admin.site.register(Project, ProjectAdmin)

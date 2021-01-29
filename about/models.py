@@ -6,7 +6,23 @@ current_date = date.today()
 
 
 # Create your models here.
-class TechSkills(models.Model):
+class Header(models.Model):
+    header = models.CharField(max_length=1000)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-timestamp']
+
+
+class ProgrammingLanguage(models.Model):
+    name = models.CharField(max_length=100)
+    level = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(5)])
+
+    class Meta:
+        ordering = ['-level', 'name']
+
+
+class TechSkill(models.Model):
     name = models.CharField(max_length=100)
     level = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(5)])
 
@@ -17,7 +33,7 @@ class TechSkills(models.Model):
 class PE(models.Model):
     title = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
-    company = models.CharField(max_length=30)
+    company = models.CharField(max_length=40)
     additional_time_info = models.CharField(max_length=30, blank=True)
     start_period = models.CharField(max_length=10, blank=True)
     start_year = models.CharField(max_length=4, default=current_date.year)
