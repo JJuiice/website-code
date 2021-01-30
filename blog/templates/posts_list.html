@@ -9,12 +9,13 @@
     <ul class="list-unstyled ml-3">
         {% for post in posts %}
             <h4>
-                    <span class="meta">{{ post.creation_date }}&ensp;{% for topics in post.topics.all %}
-                        <a class="link" href="{% url 'filtered_posts_list' topics.name %}">#{{ topics.name }}</a>
-                        &ensp;{% endfor %}&ensp;>></span>
-                &emsp;<a class="link" href="{% url 'posts_details' post.pk %}">{{ post.title }}</a>
-            </h4>
+                <span class="meta">{{ post.creation_date }}&ensp;<div data-url="{% url 'posts_list' %}" id="topics"></div>>&ensp;>></span>
+                &emsp;<a class="link" href="{% url 'posts_details' post.pk %}">{{ post.title }}</a> </h4>
             </li>
         {% endfor %}
     </ul>
+{% endblock %}
+
+{% block additional_page_scripts %}
+    <script src="{% static 'js/topics.js' %}"></script>
 {% endblock %}

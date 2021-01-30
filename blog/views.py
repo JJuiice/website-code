@@ -1,26 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from blog.models import Post, Comment
 
 
 # Create your views here.
 def posts_list(request):
-    posts = Post.objects.all()
+    topics_key = 'topics'
+    posts = Post.objects.filter(topics__name=request.GET[topics_key]) if topics_key in request.GET else Post.objects.all()
 
     context = {
         "posts": posts
     }
 
-    return render(request, "posts_list.html", context)
+    if request.is_ajax():
+        output = JsonResponse({"success": True, "url": request.build_absolute_uri(request.get_full_path()), "posts": list(posts.values_list('name', flat=True))})
+    else:
+        output = render(request, "posts_list.html", context)
 
-
-def filtered_posts_list(request, topics):
-    posts = Post.objects.filter(topics__name=topics)
-
-    context = {
-        "posts": posts
-    }
-
-    return render(request, "posts_list.html", context)
+    return output
 
 
 def posts_details(request, pk):
