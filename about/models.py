@@ -7,8 +7,8 @@ current_date = date.today()
 
 # Create your models here.
 class Header(models.Model):
-    header = models.CharField(max_length=1000)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    header = models.TextField()
+    timestamp = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['-timestamp']

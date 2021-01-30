@@ -1,0 +1,12 @@
+.meta {
+    color: forestgreen;
+}
+
+.link {
+    color: lime;
+}
+
+.link:hover {
+    color: limegreen;
+    text-decoration: none;
+}
