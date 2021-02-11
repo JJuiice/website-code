@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'about',
-    'projects'
+    'projects',
+#    'blog'
 ]
 
 MIDDLEWARE = [
@@ -125,7 +126,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "home/static"),
     os.path.join(BASE_DIR, "about/static"),
     os.path.join(BASE_DIR, "projects/static"),
-    os.path.join(BASE_DIR, "blog/static")
+#    os.path.join(BASE_DIR, "blog/static")
 ]
 
 # Production Environment setup
