@@ -43,7 +43,6 @@ class PE(models.Model):
     title = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
     company = models.CharField(max_length=40)
-    additional_time_info = models.CharField(max_length=30, blank=True)
     start_period = models.CharField(max_length=10, blank=True)
     start_year = models.CharField(max_length=4, default=current_date.year)
     end_period = models.CharField(max_length=10, default="Present")
