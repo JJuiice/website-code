@@ -11,5 +11,5 @@ from django.urls import path
 from projects import views
 
 urlpatterns = [
-    path('', views.projects, name='projects')
+    path('', views.Projects.as_view(), name='projects')
 ]

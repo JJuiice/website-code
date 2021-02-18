@@ -9,21 +9,22 @@
 
 from django.shortcuts import render
 from about.models import Header, ProgrammingLanguage, TechSkill, PE, Leadership
+from django.views import View
 
 
-# Create your views here.
-def about(request):
-    headers = Header.objects.all()
-    pls = ProgrammingLanguage.objects.all()
-    skills = TechSkill.objects.all()
-    pes = PE.objects.all()
-    leaderships = Leadership.objects.all()
-    context = {
-        'headers': headers,
-        'pls': pls,
-        'skills': skills,
-        'pes': pes,
-        'leaderships': leaderships
-    }
+class AboutView(View):
+    def get(self, request):
+        headers = Header.objects.all()
+        pls = ProgrammingLanguage.objects.all()
+        skills = TechSkill.objects.all()
+        pes = PE.objects.all()
+        leaderships = Leadership.objects.all()
+        context = {
+            'headers': headers,
+            'pls': pls,
+            'skills': skills,
+            'pes': pes,
+            'leaderships': leaderships
+        }
 
-    return render(request, 'about.html', context)
+        return render(request, 'about.html', context)

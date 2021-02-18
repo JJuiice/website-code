@@ -8,14 +8,16 @@
 #  the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.
 
 from django.shortcuts import render
+from django.views import View
 from projects.models import Project
 
 
 # Create your views here.
-def projects(request):
-    pl = Project.objects.all()
-    context = {
-        'pl': pl
-    }
+class Projects(View):
+    def get(self, request):
+        pl = Project.objects.all()
+        context = {
+            'pl': pl
+        }
 
-    return render(request, 'projects.html', context)
+        return render(request, 'projects.html', context)

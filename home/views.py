@@ -8,20 +8,23 @@
 #  the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.
 
 from django.shortcuts import render
+from django.views import View
 import requests
 
 
 # Create your views here.
-def home(request):
-    return render(request, 'home.html', {})
+class Home(View):
+    def get(self, request):
+        return render(request, 'home.html', {})
 
 
-def home_license(request):
-    url = "https://raw.githubusercontent.com/sigmaupsilon/website-code/master/LICENSE"
-    content = requests.get(url).text
+class License(View):
+    def get(self, request):
+        url = "https://raw.githubusercontent.com/sigmaupsilon/website-code/master/LICENSE"
+        content = requests.get(url).text
 
-    context = {
-        "license": content
-    }
+        context = {
+            "license": content
+        }
 
-    return render(request, 'LICENSE.html', context)
+        return render(request, 'LICENSE.html', context)
