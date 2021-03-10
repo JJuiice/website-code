@@ -10,26 +10,21 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views import View
+from django.views.generic.list import ListView
 from blog.models import Post, Comment
 
 
-class PostsListView(View):
-    def get(self, request):
+class PostListView(ListView):
+    model = Post
+    paginate_by = 10
+    template_name = 'post_list.html'
+
+    def get_queryset(self):
         topics_key = 'topics'
-        posts = Post.objects.filter(
-            topics__name=request.GET[topics_key]) if topics_key in request.GET else Post.objects.all()
 
-        context = {
-            "posts": posts
-        }
-
-        if request.is_ajax():
-            output = JsonResponse({"success": True, "url": request.build_absolute_uri(request.get_full_path()),
-                                   "posts": list(posts.values_list('name', flat=True))})
-        else:
-            output = render(request, "posts_list.html", context)
-
-        return output
+        queryset = super(PostListView, self).get_queryset()
+        qs = queryset.filter(topics__name=self.request.GET[topics_key]) if topics_key in self.request.GET else queryset
+        return qs
 
 
 class PostsDetailsView(View):
@@ -42,4 +37,4 @@ class PostsDetailsView(View):
             "comments": comments
         }
 
-        return render(request, "posts_details.html", context)
+        return render(request, "post_details.html", context)

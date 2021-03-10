@@ -7,24 +7,25 @@
 #  PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of
 #  the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.
 
-from django.shortcuts import render
 from about.models import Header, ProgrammingLanguage, TechSkill, PE, Leadership
-from django.views import View
+from django.views.generic.base import TemplateView
 
 
-class AboutView(View):
-    def get(self, request):
+class AboutView(TemplateView):
+    template_name = 'about.html'
+
+    def get_context_data(self, **kwargs):
         headers = Header.objects.all()
         pls = ProgrammingLanguage.objects.all()
         skills = TechSkill.objects.all()
         pes = PE.objects.all()
         leaderships = Leadership.objects.all()
-        context = {
-            'headers': headers,
-            'pls': pls,
-            'skills': skills,
-            'pes': pes,
-            'leaderships': leaderships
-        }
 
-        return render(request, 'about.html', context)
+        context = super().get_context_data(**kwargs)
+        context['headers'] = headers
+        context['pls'] = pls
+        context['skills'] = skills
+        context['pes'] = pes
+        context['leaderships'] = leaderships
+
+        return context

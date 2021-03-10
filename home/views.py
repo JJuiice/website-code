@@ -7,24 +7,21 @@
 #  PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of
 #  the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.
 
-from django.shortcuts import render
-from django.views import View
+from django.views.generic.base import TemplateView
 import requests
 
 
 # Create your views here.
-class Home(View):
-    def get(self, request):
-        return render(request, 'home.html', {})
+class Home(TemplateView):
+    template_name = 'home.html'
 
 
-class License(View):
-    def get(self, request):
+class License(TemplateView):
+    template_name = 'LICENSE.html'
+
+    def get_context_data(self, **kwargs):
         url = "https://raw.githubusercontent.com/sigmaupsilon/website-code/master/LICENSE"
-        content = requests.get(url).text
 
-        context = {
-            "license": content
-        }
-
-        return render(request, 'LICENSE.html', context)
+        context = super().get_context_data(**kwargs)
+        context['license'] = requests.get(url).text
+        return context

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block additional_page_stylesheets %}
+    <link rel="stylesheet" href='{% static "css/post_list.css" %}' type="text/css">
+{% endblock %}
+
+{% block page_content %}
+    <div id="post-list">
+        <ul class="list-unstyled ml-3">
+            {% for post in post_list %}
+                <h4>
+                    <span class="meta">{{ post.creation_date }} --
+                            {% for topic in post.topics.all %}
+                                <a href="#" class="topics" data-topicurl={% url 'post_list' %}>
+                                {{ topic.name }}
+                                </a>
+                            {% endfor %}>>
+                    </span>&emsp;
+                    <a href="{% url 'post_details' post.pk %}">{{ post.title }}</a>
+                </h4>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block additional_page_scripts %}
+    <script src="{% static 'js/topics.js' %}"></script>
+{% endblock %}

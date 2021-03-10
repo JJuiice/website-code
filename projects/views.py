@@ -7,17 +7,15 @@
 #  PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of
 #  the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.
 
-from django.shortcuts import render
-from django.views import View
+from django.views.generic.base import TemplateView
 from projects.models import Project
 
 
 # Create your views here.
-class Projects(View):
-    def get(self, request):
-        pl = Project.objects.all()
-        context = {
-            'pl': pl
-        }
+class Projects(TemplateView):
+    template_name = 'projects.html'
 
-        return render(request, 'projects.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pl'] = Project.objects.all()
+        return context
